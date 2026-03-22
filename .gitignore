@@ -1,0 +1,5 @@
+static/*.png
+!static/logo.png
+__pycache__/
+*.pyc
+.env
