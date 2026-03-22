@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Generator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .qr-box {
+            margin-top: 30px;
+        }
+
+        img {
+            margin-top: 15px;
+            border: 5px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .download-btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>QR Code Generator 🚀</h1>
+
+    <form method="POST">
+        <input type="text" name="data" placeholder="Enter text or URL">
+        <button type="submit">Generate</button>
+    </form>
+
+    <h2>Or Generate Contact QR Code</h2>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter name (optional)">
+        <input type="text" name="phone" placeholder="Enter phone number">
+        <button type="submit">Generate Contact QR</button>
+    </form>
+
+    {% if img_path %}
+        <div class="qr-box">
+            <h3>Your QR Code:</h3>
+            <img src="{{ img_path }}" width="200">
+
+            <div class="download-btn">
+                <a href="{{ img_path }}" download>
+                    <button>Download QR</button>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+</body>
+</html>
